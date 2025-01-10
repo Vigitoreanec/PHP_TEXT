@@ -15,15 +15,10 @@ function main()
 
 function parseCommand(): string
 {
-    //TODO улучшить код
-    $functionName = 'handleHelp';
-
-    if(isset($_SERVER['argv'][1]))
-    {
-        
-        $functionName = match($_SERVER['argv'][1])
+    $command = $_SERVER['argv'][1] ?? 'help';
+    
+        return match($command)
         {
-            'help' => 'handleHelp',
             'add-post' => 'addPost',
             'read-all'=> 'readAllPosts',
             'read' => 'readPost',
@@ -31,6 +26,5 @@ function parseCommand(): string
             'delete-post' => 'deletePost',
             default => 'handleHelp'
         };
-    }
-    return $functionName;
+    
 }
