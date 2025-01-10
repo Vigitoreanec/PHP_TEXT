@@ -1,5 +1,4 @@
-post 1:text 1;
 post 2:text 2;
 post 3:text 3;
-11:text;
 post:text posta;
+post 1:text 1;

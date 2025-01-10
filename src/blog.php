@@ -132,19 +132,29 @@ function deletePost()
     if (!$file) {
         return handleError( "Не удалось открыть файл DataBase");
     }
-    do
-    {
-        $id = (int)readline("Введите id поста");
-    }while(empty($id));
-
+    
     $post = file($fileName);
     print_r($post);
+    
+    do
+    {
+        $number = readline(PHP_EOL . "Введите номер поста: [ в скобках ] ");
+        if($number >= 0 && $number <= count($post))
+        {
+            $tmp = true;
+        }
+    }while(!$tmp);
 
+    
     if(!$post)
     {
         return handleError( "Нечего удалять");
     }
-    fwrite($file, $post);
 
-    return "Пост удален";
+    //$tmp = substr($post[$number],0);
+    unset($post[$number]);
+    print_r($post);
+ 
+    file_put_contents($fileName,implode($post));
+    return "Пост №$number удален";
 }

@@ -12,7 +12,7 @@ function handleHelp():string
 help - вывод данной подсказки
 add-post - создать новый пост
 read-all - показать все посты
-read - показать пост по id
+read-post - показать пост по id
 delete-all - стереть все посты
 delete-post - стереть 1 пост
 
