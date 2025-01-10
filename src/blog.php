@@ -73,11 +73,36 @@ function readAllPosts()
 }
 
 function readPost()
-{
+{    
+    $fileName = 'dataBD.txt';
 
+    if (!file_exists($fileName)) 
+    {
+        return handleError( "Файл DataBase пуст");
+    }
+
+    $file = fopen($fileName,"r");
+    if (!$file) {
+        return handleError( "Не удалось открыть файл DataBase");
+    }
+    $post = file($fileName);
+    print_r($post);
+    
+    $number = readline(PHP_EOL . "Введите номер поста: [ в скобках ] ");
+    
+    fclose($file);
+
+    if(!$number)
+    {
+        return handleError( "Введите номер поста");
+    }
+    //$text = 'post 2:text 2;';
+    $title = strstr(  $post[$number],":", true );
+    $body = substr(strrchr( $post[$number],":"),1);
+    return "Заголовок: " . $title . PHP_EOL . "Текст: " . $body;
 }
 
-function clearPosts()
+function clearAllPosts()
 {
     $fileName = 'dataBD.txt';
     if (file_exists($fileName)) 

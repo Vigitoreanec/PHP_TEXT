@@ -27,7 +27,7 @@ function parseCommand(): string
             'add-post' => 'addPost',
             'read-all'=> 'readAllPosts',
             'read' => 'readPost',
-            'delete-all' => 'clearPosts',
+            'delete-all' => 'clearAllPosts',
             'delete-post' => 'deletePost',
             default => 'handleHelp'
         };
