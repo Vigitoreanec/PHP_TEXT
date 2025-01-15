@@ -15,7 +15,8 @@ read-all - показать все посты
 read-post - показать пост по id
 delete-all - стереть все посты
 delete-post - стереть 1 пост
-
+init-DB - добавить БД
+seed-DB - добавить данные в БД
 HELP;
 
 
