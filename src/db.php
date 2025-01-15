@@ -1,8 +1,9 @@
 <?php
 
 function getDB() {
- if(!isset($db)) {
-	$db = new PDO("sqlite:database.db");
+ 	if(!isset($db)) {
+		$db = new PDO("sqlite:database.db");
+	}
 }
 
 function initDB(): string
