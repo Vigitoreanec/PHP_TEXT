@@ -1,7 +1,11 @@
 .idea/
 vendor/
 Text_CRUD.rar
+
 composer.phar
 composer.bat
+composer.json
+composer.lock
+
 package-lock.json
 package.json
