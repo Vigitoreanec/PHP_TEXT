@@ -1,10 +1,17 @@
 <?php
 
+/*
 require_once 'src/blog.php';
 require_once 'src/helpers.php';
 require_once 'src/main.php';
 require_once 'src/db.php';
+*/
 
-$rezult = main();
+require __DIR__  . "/ver";
 
-echo $rezult;
+try{
+    $rezult = main();
+    echo $rezult;
+} catch(Exception $e){
+    echo handleError("Error(!) :" . $e -> getMessage());    
+}

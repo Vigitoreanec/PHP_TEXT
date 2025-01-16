@@ -3,3 +3,5 @@ vendor/
 Text_CRUD.rar
 composer.phar
 composer.bat
+package-lock.json
+package.json
