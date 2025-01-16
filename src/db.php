@@ -36,5 +36,11 @@ function seedDB(): string
 	$db->query("INSERT INTO posts (title, text, id_category) VALUES ('Title 7', 'Text text lorem', 3);");
 	$db->query("INSERT INTO posts (title, text, id_category) VALUES ('Title 8', 'Text text lorem', 3);");
 	$db->query("INSERT INTO posts (title, text, id_category) VALUES ('Title 9', 'Text text lorem', 3);");
-	return "Добавление прошло";
+	
+	$db->query("INSERT INTO categories ( category) VALUES ('Category 1');");
+	$db->query("INSERT INTO categories ( category) VALUES ('Category 2');");
+	$db->query("INSERT INTO categories ( category) VALUES ('Category 3');");
+	
+	
+	return "Добавление прошло Category and Posts";
 }
