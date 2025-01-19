@@ -7,6 +7,7 @@ function getDB()
 	if (is_null($db)) {
 		$db = new PDO("sqlite:database.db");
 		$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
 	}
 
 	return $db;
@@ -176,19 +177,25 @@ function readAllPostsDB()
 function readPostDB()
 {
 	$db = getDB();
-	$post = $db->query("SELECT * FROM posts ");
+	$posts = $db->query("SELECT * FROM posts ");
 
-	if (isset($post)) {
+	if (!isset($posts)) {
 		return handleError(" Нет постов");
 	}
+	foreach ($posts as $value) {
+		//print_r($value);
+		print_r($value['id'] . "  |  " . $value['title'] . "  |  " . $value['text'] . PHP_EOL);
+	}
+	echo "------------------ Все Посты -------------------";
+
 	$number = readline(PHP_EOL . "Введите номер поста: [ в скобках ] ");
 	if (!$number) {
 		return handleError("Введите номер поста");
 	}
-	$stmt = $db->query("SELECT * FROM posts p JOIN categories c ON p.id_categories = c.id WHERE p.id = $number; ");
+	$stmt = $db->query("SELECT p.id, p.title, p.text FROM posts p WHERE p.id = $number; ");
 
 	$rezult = $stmt->fetch();
-	print_r($rezult);
+	return PHP_EOL . $rezult['title'] . " | " . $rezult['text'] . PHP_EOL;
 }
 
 function readAllPostDB()
